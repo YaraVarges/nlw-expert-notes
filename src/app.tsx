@@ -2,14 +2,50 @@ import logo from './assets/logonlw.svg'
 import { NoteCard } from './components/node-card'
 import { NewNoteCard } from './components/new-node-card'
 
+interface Note {
+  id: string
+  date:  Date
+  content:  string
+}
 
 export function App() {
 
-  const [ notes, setNotes ] = useState ([
-    { id: 1, date: new Date(), content: 'My first note'},
-    { id: 2, date: new Date(), content: 'My second note'}, 
-    { id: 3, date: new Date(), content: 'My thirty note'},
-  ])
+  const [search, setSearch] = useState('')
+  const [ notes, setNotes ] = useState<Note[]>( () => {
+    const storedNotes = localStorage.getItem('notes')
+
+    if (storedNotes) {
+      return  JSON.parse(storedNotes)
+    }
+
+    return []
+  })
+
+  function onNoteCreated (content: string) {
+    const newNote = {
+      id: crypto.randomUUID(),
+      date: new Date(),
+      content,
+    }
+
+    const notesArray = [newNote, ...notes]
+    
+    setNotes(notesArray)
+
+    localStorage.setItem('notes',  JSON.stringify(notesArray))
+    
+  }
+
+  function handleSearch (event: ChangeEvent<HTMLInputElement>) {
+    const query = event.target.value
+
+    setSearch(query)
+  }
+
+  const filteredNotes = search != ''  
+  ? notes.filter(note => note.content.toLocaleLowerCase().includes(search.toLocaleLowerCase())) 
+  : notes
+
 
   return (
     
@@ -20,17 +56,18 @@ export function App() {
         <input 
           type="text" 
           placeholder='Busque suas notas aqui'
-          className='w-full bg-transparent text-3xl font-semibold tracking-tight outline-none placeholder:text-slate-500'/>
+          className='w-full bg-transparent text-3xl font-semibold tracking-tight outline-none placeholder:text-slate-500'
+          onChange={handleSearch}/>
       </form>
 
       <div className='h-px bg-slate-700' />
 
       <div className='grid grid-cols-3 gap-6 auto-rows-[250px]'> 
-        <NewNoteCard />
+        <NewNoteCard onNoteCreated={onNoteCreated} />
         
-        {notes.map(note => {
+        {filteredNotes.map(note => {
           return (
-            <NoteCard key={note.id} note={note} />
+            <NoteCard key={note.id} note={note}  />
         })}
 
       </div>
