@@ -1,8 +1,11 @@
 # Notepad Note's
 
-<img src="assets/1.jpeg" alt="Exemplo" width="200"/>
-<img src="assets/2.jpeg" alt="Exemplo" width="200"/>
-<img src="assets/3.jpeg" alt="Exemplo" width="200"/>
+<div>
+  <img src="src/assets/1.jpeg" alt="Exemplo" width="500"/>
+  <img src="src/assets/2.jpeg" alt="Exemplo" width="500"/>
+  <img src="src/assets/3.jpeg" alt="Exemplo" width="500"/>
+</div>
+
 
 ## Descrição
 
