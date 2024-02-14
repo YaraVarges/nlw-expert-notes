@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Notepad Note's
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="assets/1.jpeg" alt="Exemplo" width="200"/>
+<img src="assets/2.jpeg" alt="Exemplo" width="200"/>
+<img src="assets/3.jpeg" alt="Exemplo" width="200"/>
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O Notepad Note's é uma aplicação de bloco de notas com suporte a reconhecimento de voz desenvolvido durante as aulas da Rocketseat no evento NLW Expert. Ele permite que os usuários façam anotações de forma rápida e fácil, incluindo a capacidade de salvar notas gravadas por áudio.
 
-## Expanding the ESLint configuration
+## Funcionalidades Principais
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Criar Notas:** Os usuários podem criar novas notas digitando ou usando o recurso de reconhecimento de voz.
+- **Excluir Notas:** Os usuários podem excluir notas que não são mais necessárias.
+- **Pesquisar Notas:** Os usuários podem pesquisar notas pelo conteúdo.
+- **Salvar Notas por Áudio:** Os usuários podem gravar notas por áudio usando o recurso de reconhecimento de voz.
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias Utilizadas
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+- React
+- TypeScript
+- Tailwindcss
+- Web Speech API
+- Vite.js
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter o Node.js instalado em sua máquina.
+
+## Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/YaraVarges/nlw-expert-notes.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Instale as dependências (package.json):
+```bash 
+npm install
+```
+
+3. Após instalar as dependências, inicie o servidor local:
+```bash 
+npm run dev
+```
+
+
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um PR ou relatar problemas.
+
+## Licença
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
+
+
